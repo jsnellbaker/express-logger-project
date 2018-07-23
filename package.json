@@ -1,13 +1,20 @@
 {
-  "name": "express_logger",
+  "name": "express-logger-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Jason Snellbaker",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsnellbaker/express-logger-project.git"
+  },
+  "engines": {
+    "node": ">=4.0"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "csv-write-stream": "^2.0.0",

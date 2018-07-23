@@ -1,10 +1,11 @@
 const express = require('express')
-const app = express()
+const app = express();
 
 const bodyParser = require('body-parser');
 const csvWriter = require('csv-write-stream');
 const fs = require('file-system');
 const fileName = 'out.csv';
+const port = 3000;
 
 function startup() {
   const writer = csvWriter({sendHeaders: false});
@@ -14,7 +15,7 @@ function startup() {
 }
 
 function timeIs(){
-  return Math.floor(Date.now() /1000);
+  return Math.floor(Date.now() / 1000);
 }
 
 function writeDataToCsv(rawData) {
@@ -42,8 +43,8 @@ app.post('/endpoint', function (req, res) {
 app.get('/endpoint', function (req, res) {
   writeDataToCsv(req.query);
 
-  res.send('Finished writing data to csv')
+  res.send('Finished writing data to csv');
 });
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.listen(port, () => console.log('Listening on port '+ port));
 startup();
