@@ -5,7 +5,7 @@ Small project to setup a logging endpoint based on incoming GET/POST requests.
 Run `npm install` to setup dependencies.
 
 # test locally
-Run `node app.js` to start local server.
+Run `npm start` to start local server.
 
 Send `GET` or `POST` requests to `http://localhost:3000/endpoint` in the following manner:
 
