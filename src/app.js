@@ -15,6 +15,9 @@ const headers = [
   'auctionTimeout',
   'auctionTimedOut',
   'timedOutBidders',
+  'doneCbCount',
+  'numberOfBidsRequested',
+  'numberOfBidsReceived',
   'bidder',
   'requestStart',
   'requestFinished',
@@ -71,6 +74,9 @@ function parseBody(payload) {
     auctionTimeout: payload.auctionTimeout,
     auctionTimedOut: payload.auctionTimedOut,
     timedOutBidders: payload.timedOutBidders,
+    doneCbCount: payload.doneCbCount,
+    numberOfBidsRequested: payload.numberOfBidsRequested,
+    numberOfBidsReceived: payload.numberOfBidsReceived
   }
 
   if (payload.bidder) {
