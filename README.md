@@ -7,23 +7,18 @@ Run `npm install` to setup dependencies.
 # test locally
 Run `npm start` to start local server.
 
-Send `GET` or `POST` requests to `http://localhost:3000/endpoint` in the following manner:
-
-GET
-```
-http://localhost:3000/endpoint?bookId=getTest1&userId=getUser1
-```
+Send `POST` requests to `http://localhost:3001/csv` in the following manner:
 
 POST
 ```
 url
-http://localhost:3000/endpoint
+http://localhost:3001/csv
 
 header
-Content-Type: application/json
+Content-Type: text/plain
 
 body
 {"userId":"poster123","bookId":"postItNotes2004"}
 ```
 
-Look for `out.csv` file that should store incoming data.
+Look for `output/out.csv` file that should store incoming data.
