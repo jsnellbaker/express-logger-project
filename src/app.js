@@ -21,7 +21,7 @@ const headers = [
   'requestTook'
 ];
 
-const port = 3000;
+const port = 3001;
 
 function startup() {
   const writer = csvWriter({sendHeaders: false});
@@ -73,17 +73,28 @@ function parseBody(payload) {
     timedOutBidders: payload.timedOutBidders,
   }
 
-  Object.keys(payload.bidder).forEach((bidderCode) => {
-    payload['bidder'][bidderCode].forEach((obj) => {
-      let temp = Object.assign({}, data, {
-        bidder: bidderCode,
-        requestStart: obj.requestStart,
-        requestFinished: obj.requestFinished,
-        requestTook: obj.requestTook,
+  if (payload.bidder) {
+    Object.keys(payload.bidder).forEach((bidderCode) => {
+      payload['bidder'][bidderCode].forEach((obj) => {
+        let temp = Object.assign({}, data, {
+          bidder: bidderCode,
+          requestStart: obj.requestStart,
+          requestFinished: obj.requestFinished,
+          requestTook: obj.requestTook,
+        });
+        result.push(temp);
       });
-      result.push(temp);
     });
-  });
+  } else {
+    let temp = Object.assign({}, data, {
+      bidder: '',
+      requestStart: '',
+      requestFinished: '',
+      requestTook: '',
+    });
+    result.push(temp);
+  }
+  
   return result;
 }
 
